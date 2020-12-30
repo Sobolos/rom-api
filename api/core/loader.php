@@ -3,7 +3,7 @@ namespace core;
 
 class MODULE{
 
-    public function load($module, $params){
+    public function load($module, $params=[]){
         $directory = "../api/modules/".$module."/";
         if(is_dir($directory)){
             require $directory."index.php";

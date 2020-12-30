@@ -9,11 +9,6 @@ class connect extends component {
         ];
         $insert = $this->db->query("INSERT INTO `session` (`session_id`, `last_activity_time`) VALUES (:session_id, NOW())", $data);
 
-        echo json_encode(["result"=>"success", "session_id"=>$data["session_id"]]);
-        return true;
-    }
-
-    function cancel(){
-
+        return json_encode(["result"=>"success", "session_id"=>$data["session_id"]]);
     }
 }

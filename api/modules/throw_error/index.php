@@ -9,7 +9,6 @@ class throw_error{
             5 => "command not found",
         ];
         $response = ["errco" => $params['code'], "errdesc" => $errorcode[$params['code']]];
-        echo json_encode($response);
-        return true;
+        return json_encode($response);
     }
 }

@@ -5,7 +5,7 @@ class random{
         $array = [];
         for($i=0; $i<=$length; $i++)
             $array[] = $i;
-        echo json_encode(
+        return json_encode(
             [
                 "resp"=>"random",
                 "data"=>$array

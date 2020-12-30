@@ -7,7 +7,7 @@ $(document).ready(function()
         $.ajax({
             type: "POST",
             url: domain+"/api/index.php",
-            data: {query: query},
+            data: query,
             dataType: "json",
             success: function(data){
                 console.log(data);
@@ -26,7 +26,7 @@ $(document).ready(function()
         $.ajax({
             type: "POST",
             url: domain+"/api/index.php",
-            data: {query: query},
+            data: query,
             dataType: "json",
             success: function(data){
                 console.log(data);
@@ -45,7 +45,7 @@ $(document).ready(function()
             $.ajax({
                 type: "POST",
                 url: domain+"/api/index.php",
-                data: {query: query},
+                data: query,
                 dataType: "json",
                 success: function(data){
                     console.log(data);
@@ -63,7 +63,7 @@ $(document).ready(function()
         $.ajax({
             type: "POST",
             url: domain+"/api/index.php",
-            data: {query: query},
+            data: query,
             dataType: "json",
             success: function(data){
                 console.log(data);
@@ -81,7 +81,7 @@ $(document).ready(function()
         $.ajax({
             type: "POST",
             url: domain+"/api/index.php",
-            data: {query: query},
+            data: query,
             dataType: "json",
             success: function(data){
                 console.log(data);
@@ -102,8 +102,8 @@ $(document).ready(function()
             $.ajax({
                 type: "POST",
                 url: domain+"/api/index.php",
-                data: {query: query},
-                //dataType: "json",
+                data: query,
+                dataType: "json",
                 success: function(data){
                     console.log(data);
                 },
@@ -113,5 +113,53 @@ $(document).ready(function()
                 }
             });
         }
+    });
+    $('#analytics').click(function (){
+        let query = {"cmd": "analytics", "uid": session_id};
+        $.ajax({
+            type: "POST",
+            url: domain+"/api/index.php",
+            data: query,
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+    });
+    $('#disconnect').click(function (){
+        let query = {"cmd": "disconnect", "uid": session_id};
+        $.ajax({
+            type: "POST",
+            url: domain+"/api/index.php",
+            data: query,
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+    });
+    $(window).on("unload", function(e) {
+        let query = {"cmd": "disconnect", "uid": session_id};
+        $.ajax({
+            type: "POST",
+            url: domain+"/api/index.php",
+            data: query,
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
     });
 });

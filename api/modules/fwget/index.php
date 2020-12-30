@@ -10,7 +10,7 @@ class fwget extends component {
 
         $file_hex = $this->getByte($file,$start, $bytes);
 
-        echo json_encode(["buff" => $file_hex]);
+        return json_encode(["buff" => $file_hex]);
     }
 
     function getByte($f,$start, $count){
@@ -18,7 +18,7 @@ class fwget extends component {
 
         for($byte=$start; $byte <= $start+$count; $byte++)
             fseek($f,$byte);
-            $bytes = $bytes.pack('H*', str_replace(' ', '', sprintf('%u', CRC32(fread($f,$byte)))));
+            $bytes = $bytes.bin2hex(fread($f,$byte));
 
         return $bytes;
     }

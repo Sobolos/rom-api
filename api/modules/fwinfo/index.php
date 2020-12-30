@@ -10,6 +10,6 @@ class fwinfo extends component {
         $file_md = md5_file($file);
         $dt = date("dmYHi");
 
-        echo json_encode(["fwsize" => $file_size, "fwmd5" => $file_md, "dt" => $dt]);
+        return json_encode(["fwsize" => $file_size, "fwmd5" => $file_md, "dt" => $dt]);
     }
 }

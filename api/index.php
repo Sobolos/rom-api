@@ -12,10 +12,10 @@ spl_autoload_register(function ($class){
 
 $api = new API();
 
-if(isset($_POST['query'])){
-    $query = $_POST['query'];
-    $api->init($query);
+if(isset($_POST)){
+    $query = $_POST;
+    echo $api->init($query);
 }else{
     $query = ["cmd" => "throw_error", "code" => 4];
-    $api->init($query);
+    echo $api->init($query);
 }

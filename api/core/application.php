@@ -9,19 +9,19 @@ class API{
         $params = array_slice($query, 1);
 
         if($command === "connect"){
-            $this->loader($command, $params);
+            return $this->loader($command, $params);
         }
         elseif($this->loader("check_session", ["uid" => $uid])) {
             //обновить время сессии;
-            $this->loader($command, $params);
+            return $this->loader($command, $params);
         }
         else{
-            $this->loader("throw_error", ["code" => 4]);
+            return $this->loader("throw_error", ["code" => 4]);
         }
     }
 
     function loader($command, $params){
-        $module = new MODULE();
-        return $module->load($command, $params);
+        $component = new MODULE();
+        return $component->load($command, $params);
     }
 }
