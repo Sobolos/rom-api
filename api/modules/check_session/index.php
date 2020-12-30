@@ -8,7 +8,6 @@ class check_session extends component {
             [
                 "uid" => $params["uid"],
             ]);
-        var_dump($query);
         if(count($query) > 0){
             return true;
         }else{

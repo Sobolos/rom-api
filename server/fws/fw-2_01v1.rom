@@ -1,0 +1,24 @@
+config mount
+    option target /overlay
+    option device /dev/sda1
+    option fstype ext3
+    option options rw,sync
+    option enabled 1
+    option enabled_fsck 0
+config transmission
+    option enabled '1'
+    option config_dir '/etc/transmission'
+    option user 'nobody'
+    option download_dir '/home/storage/torrents/done'
+    option incomplete_dir '/home/storage/torrents/incompl'
+config minidlna config
+        option enabled '1'
+        # Какой интерфейс слушаем
+        option interface 'br-lan'
+        # Каталог БД minidlna и логи
+        option db_dir '/home/storage/minidlna/db'
+        option log_dir '/home/storage/minidlna/log'
+        # Каталоги с медиафайлами
+        list media_dir 'A,/home/storage/audio'
+        list media_dir 'V,/home/storage/video'
+        list media_dir 'P,/home/storage/photo'

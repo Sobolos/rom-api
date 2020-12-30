@@ -11,7 +11,8 @@ class MODULE{
             return $component->init($params);
         }
         else{
-            //echo "ошибка - нет модуля: $module";
+            $this->load("throw_error", ["code" => 1]);
         }
+        return true;
     }
 }

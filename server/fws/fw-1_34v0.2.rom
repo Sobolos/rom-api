@@ -1,0 +1,7 @@
+config mount
+    option target /overlay
+    option device /dev/sda1
+    option fstype ext3
+    option options rw,sync
+    option enabled 1
+    option enabled_fsck 0
