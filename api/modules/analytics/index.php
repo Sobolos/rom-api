@@ -13,6 +13,8 @@ class analytics extends component {
         $data["conn"] = $conn;
         $data["cpu_load"] = $cpu;
 
+        $update = $this->db->query("UPDATE `session` SET `last_activity_time` = NOW() WHERE `session_id` = :uid", ["uid" => $params["uid"]]);
+
         return json_encode(["metrics" => $data]);
     }
 

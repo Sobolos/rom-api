@@ -12,7 +12,6 @@ class API{
             return $this->loader($command, $params);
         }
         elseif($this->loader("check_session", ["uid" => $uid])) {
-            //обновить время сессии;
             return $this->loader($command, $params);
         }
         else{

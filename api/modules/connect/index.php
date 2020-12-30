@@ -1,5 +1,4 @@
 <?php
-
 use core\component;
 
 class connect extends component {

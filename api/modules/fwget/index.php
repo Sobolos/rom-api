@@ -10,6 +10,8 @@ class fwget extends component {
 
         $file_hex = $this->getByte($file,$start, $bytes);
 
+        $update = $this->db->query("UPDATE `session` SET `last_activity_time` = NOW() WHERE `session_id` = :uid", ["uid" => $params["uid"]]);
+
         return json_encode(["buff" => $file_hex]);
     }
 
